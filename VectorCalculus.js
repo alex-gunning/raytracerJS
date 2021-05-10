@@ -506,8 +506,12 @@ function distanceToSphere(
   const unitRayY = unitVectorY(rayX, rayY, rayZ)
   const unitRayZ = unitVectorZ(rayX, rayY, rayZ)
 
-  const a = Math.pow(unitRayX, 2) + Math.pow(unitRayY, 2) + Math.pow(unitRayZ, 2)
-  const b = -2*(unitRayX * (sphereX - originX) + unitRayY * (sphereY - originY) + unitRayZ * (sphereZ - originZ))
+  const originToSphereX = originX - sphereX
+  const originToSphereY = originY - sphereY
+  const originToSphereZ = originZ - sphereZ
+
+  const a = Math.pow(rayX, 2) + Math.pow(rayY, 2) + Math.pow(rayZ, 2)
+  const b = 2*(rayX * (sphereX - sphereX) + rayY * (sphereY - originY) + unitRayZ * (sphereZ - originZ))
   const c = Math.pow(rayX, 2) + Math.pow(rayY, 2) + Math.pow(rayZ, 2) - Math.pow(radius, 2)
 
   const delta = Math.pow(b, 2) - 4*a*c

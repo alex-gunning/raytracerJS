@@ -29,7 +29,7 @@ const getKernel = (pixelDimension, canvasHandle) => {
     graphical: true,
     canvas: canvasHandle,
     constants: {
-      ENTITY_COUNT: 4,
+      ENTITY_COUNT: 3,
     },
   };
   const calculatePixel = gpu.createKernel(function (
@@ -42,9 +42,9 @@ const getKernel = (pixelDimension, canvasHandle) => {
   ) {
     const x = this.thread.x;
     const y = this.thread.y;
-    const viewPlaneInterceptX = pixelSize * (x - pixelDimension / 2);
-    const viewPlaneInterceptY = pixelSize * (y - pixelDimension / 2);
-    const viewPlaneInterceptZ = 1.0;
+    const viewPlaneInterceptX = origin[0] + pixelSize * (x - pixelDimension / 2);
+    const viewPlaneInterceptY = origin[1] + pixelSize * (y - pixelDimension / 2);
+    const viewPlaneInterceptZ = origin[2] + 1.0;
 
     const viewPlaneXrotY = rotYx(
       viewPlaneInterceptX,

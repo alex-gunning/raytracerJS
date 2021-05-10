@@ -24,7 +24,7 @@ const bleh = () => {
     TriangleDrawable(triangularObject2, RGBColour(0, 200, 0)),
     TriangleDrawable(triangularObject3, RGBColour(0, 200, 200)),
     // TriangleDrawable(triangularObject4, RGBColour(162, 42, 42)),
-    SphereDrawable(0.0, 0.0, 1.5, 0.3, RGBColour(255, 69, 0))
+    // SphereDrawable(0.0, 0.0, 0.5, 0.3, RGBColour(255, 69, 0))
   );
 
   let yawDegrees = 0.0;
